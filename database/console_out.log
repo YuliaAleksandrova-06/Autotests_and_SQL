@@ -1,0 +1,48 @@
+Julia@ideapad330 ~
+$ ssh 365a7799-fd87-4b78-89b2-cb7d6aecd72e@serverhub.praktikum-services.ru -p 4554
+morty@af8b747b6a77:~$ psql -U morty -d scooter_rent
+Password for user morty:
+psql: FATAL:  password authentication failed for user "morty"
+morty@af8b747b6a77:~$ psql -U morty -d scooter_rent
+Password for user morty:
+psql (11.18 (Debian 11.18-0+deb10u1))
+Type "help" for help.
+
+scooter_rent=# SELECT
+    c."login" AS courier_login,
+    COUNT(o.id) AS orders_in_delivery
+FROM
+    "Couriers" c
+LEFT JOIN
+    "Orders" o ON c.id = o."courierId" AND o."inDelivery" = TRUE
+GROUP BY
+    c."login";
+ courier_login | orders_in_delivery
+---------------+--------------------
+ ninja5666     |                  4
+ ninja555      |                  0
+ ninja1        |                  0
+ ninja3        |                  2
+(4 rows)
+
+scooter_rent=# SELECT
+    o.track AS order_track,
+    CASE
+        WHEN o.finished = TRUE THEN 2
+        WHEN o.cancelled = TRUE THEN -1
+        WHEN o."inDelivery" = TRUE THEN 1
+        ELSE 0
+    END AS order_status
+FROM
+    "Orders" o;
+ order_track | order_status
+-------------+--------------
+      186209 |            1
+      186209 |            1
+      699943 |            1
+       57247 |            1
+       57247 |            2
+      699943 |            2
+(6 rows)
+
+scooter_rent=#
