@@ -8,7 +8,7 @@
 4) [create_and_get_order_test.py](create_and_get_order_test.py) - автоматизация тест-кейса из задания  
 
 Результат выполнения:\
-![screenshot](https://github.com/YuliaAleksandrova-06/Autotests_and_SQL/blob/main/test_result.jpg?raw=true)
+![screenshot](https://github.com/YuliaAleksandrova-06/Autotests_and_SQL/blob/main/test_result.png?raw=true)
 
 ## База данных
 Запросы по 1 и 2 заданию по работе с базой данных находятся в файлах [task1.sql](./database/task1.sql) и [task2.sql](./database/task2.sql).\
