@@ -2,7 +2,7 @@
 
 ## Автотест
 Автотест включает в себя 4 файла:
-1) [configuration.py](configuration.py) - содержит конфигурацию, в частности url до тестируемого стенда
+1) [configuration.py](configuration.py) - содержит конфигурацию, в частности url тестируемого стенда
 2) [data.py](data.py) - набор вспомогательных данных (тела запросов, заголовки)
 3) [request_sender.py](request_sender.py) - код для отправки http запросов к стенду 
 4) [create_and_get_order_test.py](create_and_get_order_test.py) - автоматизация тест-кейса из задания  
